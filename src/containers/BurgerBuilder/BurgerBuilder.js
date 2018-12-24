@@ -51,6 +51,20 @@ class BurgerBuilder extends Component {
         this.setState({totalPrice: newPrice, ingredients: updatedIngredients})
     }
 
+    resetIngredients = () => {
+        let resetedIngredients = {
+            ...this.state.ingredients
+        }
+        resetedIngredients = {
+            salad: 0,
+            bacon: 0,
+            cheese: 0,
+            meat: 0
+        }
+
+        this.setState( {ingredients: resetedIngredients, totalPrice: 4} )
+    }
+
     render(){
         const disabledInfo = {
             ...this.state.ingredients
@@ -63,9 +77,11 @@ class BurgerBuilder extends Component {
             <Aux>
                 <Burger ingredients={this.state.ingredients}/>
                 <BuildControls 
+                    price={this.state.totalPrice.toFixed(2)}
                     ingredientAdded = {this.addIngredientHandler}
                     ingredientRemowed = {this.remoweIngredientHandler}
-                    disabled={disabledInfo}/>
+                    disabled={disabledInfo}
+                    reset={this.resetIngredients}/>
             </Aux>
         )
     }
