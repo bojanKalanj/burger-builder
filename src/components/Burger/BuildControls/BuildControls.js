@@ -19,7 +19,8 @@ const buildControl = (props) => (
                 remowed={() => props.ingredientRemowed(ctrl.type)}
                 disabled={props.disabled[ctrl.type]}/>
         )) }
-        <button onClick={props.reset}>Reset</button>
+        <button className='OrderButton' onClick={props.reset}>Reset</button>
+        <button className='OrderButton' disabled={!props.purchasable}>ORDER</button>
     </div>
 );
 
