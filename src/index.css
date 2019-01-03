@@ -634,3 +634,8 @@ body {
   background-color: #ccc;
 }
 
+.Invalid{
+  border: 1px solid red;
+  background-color: rgb(190, 62, 62);
+}
+
